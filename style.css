@@ -1,0 +1,566 @@
+/* --- RESET & VARIABEL WARNA --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: #d4a373;
+    --secondary-color: #2b2b2b;
+    --bg-light: #fdfbf7;
+    --white: #ffffff;
+    --text-color: #444444;
+}
+
+body, html {
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* --- NAVBAR & EFEK AUTO-HIDE --- */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 50px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+    transition: transform 0.35s ease-in-out, padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Class untuk menyembunyikan navbar ke atas saat scroll turun */
+nav.nav-hidden {
+    transform: translateY(-100%);
+}
+
+nav.scrolled {
+    padding: 10px 50px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.nav-top {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo span {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.45rem;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+.logo-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.92rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* IKON SOSIAL MEDIA */
+.nav-socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 18px;
+    border-left: 1px solid #e0e0e0;
+}
+
+.nav-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-socials a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    height: 90vh;
+    min-height: 520px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+    margin-top: 64px;
+    overflow: hidden;
+    background-color: #2b2b2b;
+}
+
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.hero-content p {
+    font-size: 1.05rem;
+    margin-bottom: 28px;
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+/* --- TOMBOL UMUM --- */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #b88656;
+    transform: translateY(-2px);
+}
+
+/* --- CONTAINER & SECTION --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 65px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.section-title h2 {
+    font-size: 1.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    color: #777;
+    font-size: 0.95rem;
+}
+
+/* --- WHY ME (KEUNGGULAN) --- */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.why-card {
+    background: var(--white);
+    padding: 32px 24px;
+    border-radius: 14px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+}
+
+.why-icon {
+    font-size: 2.3rem;
+    margin-bottom: 14px;
+}
+
+.why-card h3 {
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+    font-size: 1.15rem;
+}
+
+.why-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* --- PORTOFOLIO & GALERI GESER --- */
+.filter-btns {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 18px;
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.88rem;
+    transition: all 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 18px;
+    scroll-snap-type: x mandatory;
+    padding: 8px 4px 18px 4px;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gallery::-webkit-scrollbar {
+    height: 6px;
+}
+
+.gallery::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 10px;
+}
+
+.gallery-item {
+    flex: 0 0 270px;
+    width: 270px;
+    scroll-snap-align: center;
+    background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-info {
+    padding: 14px;
+    text-align: center;
+}
+
+.gallery-info span {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.gallery-info h3 {
+    font-size: 1.05rem;
+    color: var(--secondary-color);
+    margin-top: 3px;
+}
+
+/* --- PRICING (LAYANAN & HARGA) --- */
+.pricing {
+    background-color: #f7f3ee;
+}
+
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.price-card {
+    background: var(--white);
+    padding: 36px 24px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.price-card.popular {
+    border: 2px solid var(--primary-color);
+}
+
+.badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: var(--white);
+    font-size: 0.75rem;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.price-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+}
+
+.price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 22px;
+}
+
+.price-card ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.price-card ul li {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* --- BOOKING FORM --- */
+.booking-box {
+    max-width: 580px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: var(--primary-color);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    margin-top: 6px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 28px 20px;
+    text-align: center;
+    font-size: 0.88rem;
+}
+
+/* ========================================= */
+/* PENGATURAN RESPONSIF KHUSUS LAYAR HP      */
+/* ========================================= */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 10px 16px;
+        gap: 8px;
+    }
+
+    nav.scrolled {
+        padding: 8px 16px;
+    }
+
+    /* Baris atas navbar di HP: Logo di kiri, Ikon Sosmed di kanan */
+    .nav-top {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .logo span {
+        font-size: 1.15rem; /* Ukuran font logo pas untuk layar HP */
+    }
+
+    .logo-img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .nav-socials {
+        border-left: none;
+        padding-left: 0;
+        gap: 12px;
+    }
+
+    /* Baris kedua navbar di HP: Menu navigasi sejajar rapi */
+    .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 6px;
+        padding-top: 6px;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+        padding: 4px 4px;
+    }
+
+    .hero {
+        height: 72vh;
+        min-height: 440px;
+        margin-top: 86px;
+        padding: 0 16px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.65rem;
+        margin-bottom: 12px;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 22px;
+    }
+
+    .btn {
+        padding: 11px 24px;
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 45px 16px;
+    }
+
+    .section-title {
+        margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+
+    .why-grid, 
+    .price-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .gallery-item {
+        flex: 0 0 235px;
+        width: 235px;
+    }
+
+    .gallery-item img {
+        height: 245px;
+    }
+
+    .booking-box {
+        padding: 22px 16px;
+    }
+}
